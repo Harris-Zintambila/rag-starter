@@ -1,0 +1,33 @@
+# ===========================
+# RAG System - Optimized Dependencies
+# ===========================
+
+# Core LangChain (stable versions)
+langchain==0.2.1
+langchain-community==0.2.1
+langchain-core==0.2.3
+
+# Embeddings
+sentence-transformers==2.7.0
+
+# Vector Database
+chromadb==0.5.0
+
+# Local LLM
+ollama==0.1.9
+
+# Document Processing
+pypdf==4.2.0
+beautifulsoup4==4.12.3
+lxml==5.2.1
+
+# Utilities
+numpy==1.26.4
+
+# Optional but useful (safe to include)
+tiktoken==0.7.0
+python-dotenv==1.0.1
+
+# Optional Evaluation (uncomment when needed)
+# ragas==0.1.6
+# deepeval==0.21.0

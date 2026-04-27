@@ -1,0 +1,43 @@
+services:
+  rag-app:
+    build: .
+    container_name: uhassistant
+
+    volumes:
+      - .:/app
+      - ./vectorstore:/app/vectorstore
+      - ./data:/app/data
+
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+
+    depends_on:
+      - ollama
+
+    stdin_open: true
+    tty: true
+
+    # Wait for Ollama before starting app
+    command: >
+      sh -c "
+      echo 'Waiting for Ollama...';
+      until curl -s http://ollama:11434 > /dev/null; do sleep 2; done;
+      echo 'Ollama is ready!';
+      python main.py
+      "
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+
+    ports:
+      - "11435:11434"
+
+    volumes:
+      - ollama_data:/root/.ollama
+
+    # Keep container alive
+    tty: true
+
+volumes:
+  ollama_data:
