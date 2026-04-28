@@ -8,7 +8,7 @@ from langchain.prompts import PromptTemplate
 
 def get_llm():
     return Ollama(
-        model="llama3",
+        model=os.getenv("OLLAMA_MODEL", "llama3.2:1b"),
         base_url=os.getenv("OLLAMA_HOST", "http://localhost:11434"),
         temperature=0.2
     )

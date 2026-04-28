@@ -1,4 +1,6 @@
-from pipeline import RAGPipeline
+import os
+os.environ["ANONYMIZED_TELEMETRY"] = "False"
+from src.pipeline import RAGPipeline
 
 
 def main():

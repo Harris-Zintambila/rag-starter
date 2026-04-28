@@ -3,10 +3,10 @@ os.environ["ANONYMIZED_TELEMETRY"] = "False"
 import logging
 from pathlib import Path
 
-from loader import load_documents, chunk_documents
-from embedder import get_embedder
-from retriever import create_vectorstore, get_retriever
-from generator import get_llm, create_rag_prompt, create_qa_chain, generate_response
+from src.loader import load_documents, chunk_documents
+from src.embedder import get_embedder
+from src.retriever import create_vectorstore, get_retriever
+from src.generator import get_llm, create_rag_prompt, create_qa_chain, generate_response
 from langchain_community.vectorstores import Chroma
 
 logging.basicConfig(level=logging.INFO)
